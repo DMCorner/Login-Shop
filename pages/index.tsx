@@ -68,7 +68,7 @@ function Home() {
         </div>
 
         <div className='form-inner bg-slate-500 rounded-3xl p-5 border-black border-4'>
-              <OutputBox  Login={Login} error={error}/>
+              <OutputBox  Login={Login}/>
         </div>
 
           <div></div>

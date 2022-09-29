@@ -5,10 +5,10 @@ import Image from 'next/image'
 import TopNavigation from '../components/TopNav.jsx'
 import  loginCode  from '../components/loginCode.js'
 import Link from 'next/link'
-import LoginForm from '../components/LoginForm'
+import LoginForm from '../components/LoginForm.js'
 import React from "react";
-import Explanation from '../components/Explanation'
-import OutputBox from '../components/OutputBox'
+import Explanation from '../components/Explanation.js'
+import OutputBox from '../components/OutputBox.js'
 
 
 
@@ -52,11 +52,11 @@ function Home() {
       <div className="grid grid-cols-5 min-h-screen flex-col items-center justify-center py-2 space-x-2">
         <div></div>
 
-        <div className='form-inner bg-slate-500 rounded-3xl p-5'>
+        <div className='form-inner bg-slate-500 rounded-3xl p-5 border-black border-4'>
           <Explanation/>
         </div>
 
-        <div>
+        <div className='form-inner bg-slate-500 rounded-3xl p-5 border-black border-4'>
           {(user.email != "") ? (
             <div className='welcome'>
               <h2>Welcome, <span>{user.name}</span></h2>
@@ -67,7 +67,7 @@ function Home() {
            )}
         </div>
 
-        <div className='form-inner bg-slate-500 rounded-3xl p-5'>
+        <div className='form-inner bg-slate-500 rounded-3xl p-5 border-black border-4'>
               <OutputBox  Login={Login} error={error}/>
         </div>
 

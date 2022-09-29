@@ -11,9 +11,9 @@ function LoginForm({Login,error}) {
   }
   
   return (
-      <form onSubmit={submitHandler} className="inline">
+      <form onSubmit={submitHandler} className="inline ">
         <div className='form-inner inline-block bg-slate-500 rounded-3xl p-5'>
-          <h2 className=' font-bold text-4xl text-center bg-slate-600 rounded-3xl p-5'>Login</h2>
+          <h2 className=' font-bold text-4xl text-center bg-slate-600 rounded-3xl p-5 text-white underline shadow-lg border-black border-4'>Login</h2>
             
             <div className='form-group p-5'>
               <label htmlFor="name" className='text-xl rounded-t-3xl bg-slate-400 p-2'>Name:</label>
@@ -32,8 +32,8 @@ function LoginForm({Login,error}) {
               </input>
             </div>
             <div className='form-group p-5 w-1/2'>
-              <input type="submit" value="LOGIN" className="bg-blue-500 border-white border-4 p-5 rounded-3xl w-32"></input>
-              {(error != "") ? (<div className='error'>{error}</div>) : ""}
+              <input type="submit" value="LOGIN" className="bg-blue-500 border-black border-4 font-bold p-5 rounded-3xl w-32 hover:cursor-pointer"></input>
+              
             </div>
         </div>
       </form>

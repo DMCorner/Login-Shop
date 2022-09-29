@@ -24,7 +24,7 @@ function Home() {
   const [user, setUser] = useState({name: "", email: ""});
   const [error, setError] = useState("");
 
-  const Login = (details) => {{
+  const Login = (details: { name: string; email: string; password: string }) => {{
     console.log(details);
 
     if (details.name == adminUser.name && details.email == adminUser.email && details.password == adminUser.password) {

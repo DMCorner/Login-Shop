@@ -1,85 +1,79 @@
 import type { NextPage } from 'next'
+import {useState} from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
+import TopNavigation from '../components/TopNav.jsx'
+import  loginCode  from '../components/loginCode.js'
+import Link from 'next/link'
+import LoginForm from '../components/LoginForm'
+import React from "react";
+import Explanation from '../components/Explanation'
+import OutputBox from '../components/OutputBox'
 
-const Home: NextPage = () => {
+
+
+
+
+function Home() {
+  const adminUser = {
+    name: "Adam Admin",
+    email: "admin@admin.com",
+    password: "admin123"
+  }
+
+  const [user, setUser] = useState({name: "", email: ""});
+  const [error, setError] = useState("");
+
+  const Login = (details) => {{
+    console.log(details);
+
+    if (details.name == adminUser.name && details.email == adminUser.email && details.password == adminUser.password) {
+      console.log("Logged in");
+      console.log({
+        name: details.name,
+        email: details.email
+      }
+
+        )
+    } else {
+      console.log("details do not match");
+      setError(("details do not match"))
+    }
+  }
+}
+  
+
+  const Logout = () => {
+    console.log("Logout")
+    setUser({name: "", email: ""})
+  }
+
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <div className="grid grid-cols-5 min-h-screen flex-col items-center justify-center py-2 space-x-2">
+        <div></div>
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
-
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
-        </p>
-
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and its API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+        <div className='form-inner bg-slate-500 rounded-3xl p-5'>
+          <Explanation/>
         </div>
-      </main>
 
-      <footer className="flex h-24 w-full items-center justify-center border-t">
-        <a
-          className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </a>
-      </footer>
-    </div>
+        <div>
+          {(user.email != "") ? (
+            <div className='welcome'>
+              <h2>Welcome, <span>{user.name}</span></h2>
+              <button onClick={Logout}>Logout</button>
+            </div>
+            ) : (
+            <LoginForm Login={Login} error={error}/>
+           )}
+        </div>
+
+        <div className='form-inner bg-slate-500 rounded-3xl p-5'>
+              <OutputBox/>
+        </div>
+
+          <div></div>
+      </div>
+        
   )
 }
 

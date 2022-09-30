@@ -1,39 +1,18 @@
 import {useState} from 'react'
+import {details, setDetails} from '../components/LoginForm'
 
-function OutputBox({Login}) {
-      const adminUser = {
+function OutputBox(details) {
+    const adminUser = {
     name: "Adam Admin",
     email: "admin@admin.com",
     password: "admin123"
   }
-
-  const [user, setUser] = useState({name: "", email: ""});
-  const [error, setError] = useState("");
-
-
-  
-
-  const Logout = () => {
-    console.log("Logout")
-    setUser({name: "", email: ""})
-  }
-
-
+  if (details.name == adminUser.name && details.email == adminUser.email && details.password == adminUser.password) {
     return (
-        <div>
-            <div>
-            {(user.email != "") ? (
-            <div className='welcome'>
-              <h2>Welcome, <span>{user.name}</span></h2>
-              <button onClick={Logout}>Logout</button>
-            </div>
-            ) : (
-            <div>fdsawfe</div>
-           )}
-           {(error != "") ? (<div className='error'>{error}</div>) : ""}
-            </div>
+      <div className='bg-black w-96'>
+        You have logged in
         </div>
     )
-}
+  }}
 
 export default OutputBox

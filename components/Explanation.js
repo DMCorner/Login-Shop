@@ -4,7 +4,7 @@ const Explanation = () => {
 
 
     return (
-        <div className="bg-slate-500 p-3 rounded-3xl text-xl space-y-5 ">
+        <div className=" p-3 rounded-3xl text-xl space-y-5 ">
             <div className="bg-slate-600 p-3 rounded-3xl text-center text-4xl font-bold text-white underline shadow-lg border-black border-4">
                 <h1>Explanation</h1>
             </div>

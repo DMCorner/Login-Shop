@@ -1,18 +1,46 @@
 import React, {useState} from 'react'
+import OutputBox from '../components/OutputBox.js'
 
 
-function LoginForm({Login,error}) {
+function LoginForm({Login}) {
   const [details, setDetails] = useState({name: "",email: "", password: ""});
+  const [error, setError] = useState("")
+
+    const adminUser = {
+    name: "Adam Admin",
+    email: "admin@admin.com",
+    password: "admin123"
+  }
 
   const submitHandler = e => {
     e.preventDefault();
 
     Login(details);
   }
+
+  function errorRead() {
+    let error = "";
+    console.log(error)
+    if ( details.name == adminUser.name & details.email == adminUser.email & details.password != adminUser.password) {
+      setError("password wrong")
+     } if (details.name == adminUser.name & details.email != adminUser.email & details.password == adminUser.password) {
+      setError("email wrong")
+     } if (details.name != adminUser.name & details.email == adminUser.email & details.password == adminUser.password) {
+      setError("username wrong")
+     } if (details.name.toUpperCase() == adminUser.name.toUpperCase() & details.name != adminUser.name) {
+      setError("Name inputs are case sensitive")
+     } if (details.email.toUpperCase() == adminUser.email.toUpperCase() & details.email != adminUser.email) {
+      setError("Email inputs are case sensitive")
+     } if (details.password.toUpperCase() == adminUser.password.toUpperCase() & details.password != adminUser.password) {
+      setError("Password inputs are case sensitive")
+     }
+  }
+
+
   
   return (
       <form onSubmit={submitHandler} className="inline ">
-        <div className='form-inner inline-block bg-slate-500 rounded-3xl p-5'>
+        <div className='form-inner inline-block rounded-3xl p-5'>
           <h2 className=' font-bold text-4xl text-center bg-slate-600 rounded-3xl p-5 text-white underline shadow-lg border-black border-4'>Login</h2>
             
             <div className='form-group p-5'>
@@ -31,9 +59,42 @@ function LoginForm({Login,error}) {
                 onChange={e => setDetails({...details, password: e.target.value})} value={details.password}>
               </input>
             </div>
-            <div className='form-group p-5 w-1/2'>
-              <input type="submit" value="LOGIN" className="bg-blue-500 border-black border-4 font-bold p-5 rounded-3xl w-32 hover:cursor-pointer"></input>
+
+
+            <div className='form-group p-5'>
+              <input type="submit" value="LOGIN" className="bg-blue-500 border-black border-4 font-bold p-5 rounded-3xl w-32 hover:cursor-pointer"
+              onClick={errorRead}>
+
+              </input>
+
+
+              {console.log("here",details)}
+              {console.log("error outside",error)}
               
+
+              { (details.name == "Adam Admin" & details.email == "admin@admin.com" & details.password == "admin123") ? (
+                <div className='py-5'>
+                  <div className=' font-bold text-4xl text-center bg-slate-600 rounded-3xl p-5 text-white underline shadow-lg border-black border-4'>Output</div>
+                  <div className='text-xl rounded-3xl bg-slate-400 p-2'>
+                    <div className='welcome'>
+                      <h2>Welcome, <span>{details.name}</span></h2><br></br>
+                      <h2>Your Email is: <span>{details.email}</span></h2><br></br>
+                      <h2>Your Password is: <span>{details.password}</span></h2><br></br>
+                    </div>
+                  </div>
+                </div>
+            ) : (
+            <div className='py-5'>
+                  <div className=' font-bold text-4xl text-center bg-slate-600 rounded-3xl p-5 text-white underline shadow-lg border-black border-4'>Output</div>
+                  <div className='text-xl rounded-3xl bg-slate-400 p-2'>
+                    <div className='welcome'>
+                      {console.log("error inside",error)}
+                      <h2>{error}</h2>
+                    </div>
+                  </div>
+                </div>
+           )}
+           <OutputBox details={details}></OutputBox>
             </div>
         </div>
       </form>

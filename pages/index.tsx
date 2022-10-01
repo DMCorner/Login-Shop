@@ -49,35 +49,21 @@ function Home() {
   }
 
   return (
-      <div className="grid grid-cols-3 min-h-screen flex-col items-center justify-center py-2 space-x-2">
+      <div className="grid grid-cols-2 min-h-screen flex-col items-center justify-center py-2 space-x-5  bg-zinc-900">
         
 
-        <div className='form-inner bg-slate-500 rounded-3xl p-5 border-black border-4'>
+        <div className='w-1/2 bg-gradient-to-b from-amber-400 to-amber-600 rounded-3xl p-5 translate-x-3 border-black border-4'>
+          
           <Explanation/>
         </div>
 
-        <div className='form-inner bg-slate-500 rounded-3xl p-5 border-black border-4'>
+        <div className=' -translate-x-1/2 form-inner bg-gradient-to-b from-amber-400 to-amber-600 rounded-3xl p-5 border-black border-4'>
 
             <LoginForm Login={Login} />
 
         </div>
 
-        <div className='form-inner bg-slate-500 rounded-3xl p-5 border-black border-4'>
-          <div>
-            <div>
-              
-            {(adminUser.email == "admin@admin.com") ? (
-            <div className='welcome'>
-              <h2>Welcome, <span>{user.name}</span></h2>
-              <button onClick={Logout}>Logout</button>
-            </div>
-            ) : (
-            <div>fdsasssssf</div>
-           )}
-           
-            </div>
-          </div>
-        </div>
+
 
           
       </div>

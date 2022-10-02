@@ -4,7 +4,7 @@ import OutputBox from '../components/OutputBox.js'
 
 function LoginForm({Login}) {
   const [details, setDetails] = useState({name: "",email: "", password: ""});
-  const [error, setError] = useState("")
+  const [output, setOutput] = useState("")
 
     const adminUser = {
     name: "Adam Admin",
@@ -18,21 +18,23 @@ function LoginForm({Login}) {
     Login(details);
   }
 
-  function errorRead() {
-    let error = "";
-    console.log(error)
+  function outputRead() {
+    let output = "";
+    console.log(output)
     if ( details.name == adminUser.name & details.email == adminUser.email & details.password != adminUser.password) {
-      setError("Password is incorrect.")
+      setOutput("Password is incorrect.")
      } if (details.name == adminUser.name & details.email != adminUser.email & details.password == adminUser.password) {
-      setError("Email is incorrect.")
+      setOutput("Email is incorrect.")
      } if (details.name != adminUser.name & details.email == adminUser.email & details.password == adminUser.password) {
-      setError("Username is incorrect.")
+      setOutput("Username is incorrect.")
      } if (details.name.toUpperCase() == adminUser.name.toUpperCase() & details.name != adminUser.name) {
-      setError("Name inputs are case sensitive.")
+      setOutput("Name inputs are case sensitive.")
      } if (details.email.toUpperCase() == adminUser.email.toUpperCase() & details.email != adminUser.email) {
-      setError("Email inputs are case sensitive.")
+      setOutput("Email inputs are case sensitive.")
      } if (details.password.toUpperCase() == adminUser.password.toUpperCase() & details.password != adminUser.password) {
-      setError("Password inputs are case sensitive.")
+      setOutput("Password inputs are case sensitive.")
+     } if ( details.name == adminUser.name & details.email == adminUser.email & details.password == adminUser.password) {
+      setOutput("All inputs correct.")
      }
   }
 
@@ -72,7 +74,7 @@ function LoginForm({Login}) {
             </div>
 
               {console.log("here",details)}
-              {console.log("error outside",error)}
+              {console.log("output outside",output)}
               
 
               { (details.name == "Adam Admin" & details.email == "admin@admin.com" & details.password == "admin123") ? (
@@ -90,8 +92,8 @@ function LoginForm({Login}) {
                   
                   <div className='text-xl rounded-3xl bg-white p-2 h-44'>
                     <div className='welcome'>
-                      {console.log("error inside",error)}
-                      <h2>{error}</h2>
+                      {console.log("output inside",output)}
+                      <h2>{output}</h2>
                     </div>
                   </div>
                 </div>
@@ -99,7 +101,7 @@ function LoginForm({Login}) {
            <div className='h-5'>
             </div>
            <input type="submit" value="LOGIN" className="bg-gradient-to-b from-amber-400 to-amber-600 border-black border-4 font-bold p-5 rounded-3xl w-32 hover:cursor-pointer focus:ring-2 ring-offset-4"
-              onClick={errorRead}>
+              onClick={outputRead}>
               </input>
            <OutputBox details={details}></OutputBox>
           </div>

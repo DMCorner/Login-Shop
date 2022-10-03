@@ -27,6 +27,14 @@ function LoginForm({Login}) {
       setOutput("Email is incorrect.")
      } if (details.name != adminUser.name & details.email == adminUser.email & details.password == adminUser.password) {
       setOutput("Username is incorrect.")
+      } if (details.name != adminUser.name & details.email != adminUser.email & details.password == adminUser.password) {
+      setOutput("Both Username and Email are incorrect.")
+      } if (details.name != adminUser.name & details.email == adminUser.email & details.password != adminUser.password) {
+      setOutput("Both Username and Password are incorrect.")
+      } if (details.name == adminUser.name & details.email != adminUser.email & details.password != adminUser.password) {
+      setOutput("Both Email and Password are incorrect.")
+      } if (details.name != adminUser.name & details.email != adminUser.email & details.password != adminUser.password) {
+      setOutput("All inputs incorrect.")
      } if (details.name.toUpperCase() == adminUser.name.toUpperCase() & details.name != adminUser.name) {
       setOutput("Username inputs are case sensitive.")
      } if (details.email.toUpperCase() == adminUser.email.toUpperCase() & details.email != adminUser.email) {

@@ -49,15 +49,15 @@ function Home() {
   }
 
   return (
-      <div className="grid grid-cols-2 min-h-screen flex-col items-center justify-center py-2 space-x-5  bg-zinc-900">
+      <div className="grid grid-cols-2 min-h-screen flex-col items-center justify-center py-2 space-x-5  bg-white">
         
 
-        <div className='w-1/2 bg-gradient-to-b from-amber-400 to-amber-600 rounded-3xl p-5 translate-x-3 border-black border-4'>
+        <div className='w-1/2 bg-gradient-to-b p-5 translate-x-3 border-black border-2 bg-gray-100'>
           
           <Explanation/>
         </div>
 
-        <div className=' -translate-x-1/2 form-inner bg-gradient-to-b from-amber-400 to-amber-600 rounded-3xl p-5 border-black border-4'>
+        <div className=' -translate-x-1/2 form-inner border-black border-2 bg-gray-100'>
 
             <LoginForm Login={Login} />
 

@@ -20,7 +20,7 @@ function LoginForm({Login}) {
 
   function outputRead() {
     let output = "";
-    console.log(output)
+    // console.log(output)
     if ( details.name == adminUser.name & details.email == adminUser.email & details.password != adminUser.password) {
       setOutput("Password is incorrect.")
      } if (details.name == adminUser.name & details.email != adminUser.email & details.password == adminUser.password) {
@@ -73,8 +73,8 @@ function LoginForm({Login}) {
             <div className='h-5'>
             </div>
 
-              {console.log("here",details)}
-              {console.log("output outside",output)}
+              {/* {console.log("here",details)}
+              {console.log("output outside",output)} */}
               
 
               
@@ -82,7 +82,7 @@ function LoginForm({Login}) {
                   
                   <div className='text-xl rounded-3xl bg-white p-2 h-44'>
                     <div className='welcome'>
-                      {console.log("output inside",output)}
+                      {/* {console.log("output inside",output)} */}
                       <h2>{output}</h2>
                     </div>
                   </div>

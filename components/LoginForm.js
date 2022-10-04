@@ -60,7 +60,7 @@ function LoginForm({Login}) {
               onChange={e => setDetails({...details, name: e.target.value})} value={details.name}/>
             </div>
             <div className='form-group p-5'>
-              <label htmlFor="email " className='text-xl rounded-t-3xl bg-gray-300 p-3 border-2'>Email:</label>
+              <label htmlFor="email " className='text-xl rounded-t-3xl bg-gray-300 p-3 border-2'>Email:&nbsp;</label>
               <input className='text-xl w-full rounded-r-3xl rounded-b-3xl p-2 pl-3 bg-white' type="email" name="email" id="email" 
               onChange={e => setDetails({...details, email: e.target.value})} value={details.email}/>
             </div>
